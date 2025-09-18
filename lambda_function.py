@@ -5,7 +5,8 @@ import os # this is used to read environment variables.
 # NOTES:
 # the aim of this lambda script is to handle a get and post request from the api gateway to the database
 
-dynamodb = boto3.resource("dynamodb")
+region = os.environ.get("AWS_DEFAULT_REGION", "eu-west-1")
+dynamodb = boto3.resource("dynamodb", region_name=region)
 
 def lambda_handler(event, context):
     table_name = os.environ["TABLE_NAME"]
