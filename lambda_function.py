@@ -33,8 +33,8 @@ def lambda_handler(event, context):
         return {
             "statusCode": 201,
             "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"message": "visit count has been successfully updated"})
-            # "body": json.dumps({"visit_count": int(response["Attributes"]["count"])})            
+            # "body": json.dumps({"message": "visit count has been successfully updated"})
+            "body": json.dumps({"visit_count": int(response["Attributes"]["count"])})            
         }
     
     # error handling for situations where any other different api request is made
